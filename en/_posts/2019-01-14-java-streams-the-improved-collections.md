@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Java Streams: As Collections Melhoradas"
+title: "Java Streams: The Improved Collections"
 date: 2019-01-14 08:50:28
 categories: coding js
 author_name : Thiago Medeiros
@@ -11,6 +11,8 @@ read_time : 3
 feature_image: feature-laptop
 show_related_posts: true
 square_related: recommend-laptop
+lang: en
+lang-ref: java-streams-the-improved-collections
 ---
 
 
