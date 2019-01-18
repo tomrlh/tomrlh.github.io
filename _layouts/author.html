@@ -2,6 +2,7 @@
 layout: with-sidebar
 ---
 {% assign author_posts = site.posts | where: "author_name", page.author_name %}
+{% assign all_post_by = site.t['all_post_by'][page.lang] %}
 
 <div class="author-bio">
 
@@ -11,8 +12,7 @@ layout: with-sidebar
         {{ content }}
     </div>
 </div>
-
-<h2 class="favorites">All Post by {{ page.author_name }}</h2>
+<h2 class="favorites">{{ all_post_by }} {{ page.author_name }}</h2>
 
 <div class="posts-block animated fadeIn ">
 

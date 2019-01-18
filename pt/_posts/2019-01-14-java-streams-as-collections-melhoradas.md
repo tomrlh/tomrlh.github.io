@@ -11,8 +11,7 @@ read_time : 3
 feature_image: feature-laptop
 show_related_posts: true
 square_related: recommend-laptop
-lang: pt
-lang-ref: java-streams-as-collections-melhoradas
+i18n-link: java-streams-as-collections-melhoradas
 ---
 
 
