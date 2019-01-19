@@ -2,15 +2,17 @@
 layout: with-sidebar
 ---
 
+{% assign trans = site.data.translations %}
+
 <div class="sub-nav">
-    <a href="#" class="select-posts active">{{ site.t['posts'][page.lang] }}</a>
-    <a href="#" class="select-categories">{{ site.t['categories'][page.lang] }}</a>
+    <a href="#" class="select-posts active">{{ trans['posts'][page.lang] }}</a>
+    <a href="#" class="select-categories">{{ trans['categories'][page.lang] }}</a>
 </div>
 
 <div class="home-page-posts animated fadeIn ">
     {% assign posts = site.posts | where:"lang", page.lang %}
-    {% assign in = site.t['in'][page.lang] %}
-    {% assign minutes = site.t['minutes'][page.lang] %}
+    {% assign in = trans['in'][page.lang] %}
+    {% assign minutes = trans['minutes'][page.lang] %}
 
     {% for post in posts %}
 

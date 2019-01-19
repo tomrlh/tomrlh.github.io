@@ -1,7 +1,29 @@
 <div id="menu-target">
+	{% assign trans = site.data.translations %}
     <ul>
-        {% for page in site.nav_list %}
-            <li><i class="fa {{ page[1][2] }}"></i><a href="{{ page[1][1] | prepend: site.baseurl }}">{{ page[1][0] }}</a></li>
-        {% endfor %}
+        <li>
+        	<i class="fa fa-home"></i>
+        	<a href="{{ '/' | prepend: site.lang }}">{{ trans['home_page'][page.lang] }}</a>
+        </li>
+        <li>
+        	<i class="fa fa-home"></i>
+        	<a href="{{ '/home-alt' | prepend: site.lang }}">{{ trans['home_alt_page'][page.lang] }}</a>
+        </li>
+        <li>
+        	<i class="fa fa-home"></i>
+        	<a href="{{ '/home-alt-2' | prepend: site.lang }}">{{ trans['home_alt_2_page'][page.lang] }}</a>
+        </li>
+        <li>
+        	<i class="fa fa-home"></i>
+        	<a href="{{ '/home-alt-2' | prepend: site.lang }}">{{ trans['about_page'][page.lang] }}</a>
+        </li>
+        <li>
+        	<i class="fa fa-home"></i>
+        	<a href="{{ '/contact' | prepend: site.lang }}">{{ trans['contact_page'][page.lang] }}</a>
+        </li>
+        <li>
+        	<i class="fa fa-home"></i>
+        	<a href="{{ '/author/tomrlh' | prepend: site.lang }}">{{ trans['author_page'][page.lang] }}</a>
+        </li>
     </ul>
 </div>

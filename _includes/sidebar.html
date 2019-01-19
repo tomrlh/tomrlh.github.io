@@ -6,25 +6,12 @@
         <span class="bar"></span>
     </span>
 
-    {% include contacts.html %}
-
     <div class="site-info">
         <div class="primary-info">
             <h1>{{ page.title }}</h1>
             <p>{{ page.desc }}</p>
         </div>
 
-        {% if page.include_cta_btn == true %}
-        {% assign langs = site.data.languages %}
-        <div class="secondary-info">
-            <div class="lang">
-                <p>{{ site.t['read_different_language'][page.lang] }}:
-                    <br>
-                    <a class="{{ langs.pt.icon }}" href="/pt"></a> | <a class="{{ langs.en.icon }}" href="/"></a>
-                </p>
-            </div>
-
-        </div>
-        {% endif %}
+        {% include lang-selector.html %}
     </div>
 </section><!-- end sidebar -->

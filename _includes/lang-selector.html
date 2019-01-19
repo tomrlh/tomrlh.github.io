@@ -1,0 +1,13 @@
+{% if page.include_cta_btn == true %}
+{% assign langs = site.data.languages %}
+<div class="secondary-info">
+    <div class="lang">
+        <p>
+            <i>{{ site.data.translations['read_different_language'][page.lang] }}:</i>
+            <br>
+            <a class="{{ langs.pt.icon }}" href="/pt"></a> | <a class="{{ langs.en.icon }}" href="/"></a>
+        </p>
+    </div>
+
+</div>
+{% endif %}

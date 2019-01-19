@@ -7,20 +7,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site
 github_username: tomrlh
 enable_retina: false
-
-nav_list:
-  Home : ['Home', '/', 'fa-home']
-  Home_Alt : ['Home Alt', '/home-alt', 'fa-home']
-  Home_Alt_2 : ['Home Alt 2', '/home-alt-2/', 'fa-home']
-  About : ['About', '/about', 'fa-anchor']
-  Contact : ['Contact', '/contact', 'fa-plane']
-  Author : ['Author', '/author/michelle', 'fa-user']
-  
 permalink: /:categories/:title
-single_footer: '<p>The writer community loves your content. Writer &copy; 2016 <a href="/">latest posts</a></p>'
-footer_links:
-    About: ['About', '/about']
-    Writer: ['Writer 2016', '/about']
 markdown: kramdown
 plugins:
   - jemoji
@@ -39,32 +26,6 @@ defaults:
    values:
      lang: pt
      base-url: "/pt/"
-
-t:
-  title:
-    en: "Title"
-    pt: "Título"
-  subtitle:
-    en: "Subtitle"
-    pt: "Subtítulo"
-  posts:
-    en: "Posts"
-    pt: "Postagens"
-  categories:
-    en: "Categories"
-    pt: "Categorias"
-  minutes:
-    en: "minutes"
-    pt: "minutos"
-  in:
-    en: "in"
-    pt: "em"
-  all_posts_by:
-    en: "All Post by"
-    pt: "Postagem por"
-  read_different_language:
-    en: "Read this site in a different language"
-    pt: "Leia este site em outro idioma"
 # Build settings
 # markdown: kramdown
   

@@ -2,7 +2,7 @@
 layout: with-sidebar
 ---
 {% assign author_posts = site.posts | where: "author_name", page.author_name %}
-{% assign all_post_by = site.t['all_post_by'][page.lang] %}
+{% assign all_post_by = site.data.translations['all_post_by'][page.lang] %}
 
 <div class="author-bio">
 

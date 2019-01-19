@@ -13,8 +13,8 @@ layout: default
 </header>
 
 <main class="container">
-    {% assign in = site.t['in'][page.lang] %}
-    {% assign minutes = site.t['minutes'][page.lang] %}
+    {% assign in = site.data.translations['in'][page.lang] %}
+    {% assign minutes = site.data.translations['minutes'][page.lang] %}
     
     <div class="row">
         <div class="col-xs-12 single-content">
