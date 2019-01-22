@@ -2,12 +2,22 @@
 layout: with-sidebar
 ---
 
+{% assign trans = site.data.translations %}
+{% assign in = site.data.translations['in'][page.lang] %}
+{% assign minutes = site.data.translations['minutes'][page.lang] %}
+
 <div class="sub-nav">
-    <a href="#" class="select-posts active">Posts</a>
+    <a href="#" class="select-posts active">{{ trans['posts'][page.lang] }}</a>
 </div>
 
 <div class="category-page-posts animated fadeIn ">
     {% for post in site.categories[page.category] %}
+        {% if page.lang == "pt" %}
+            {% assign post_category = post.categories[1] %}
+        {% else %}
+            {% assign post_category = post.categories.first %}
+        {% endif %}
+
     <article class="post">
         <div class="post-preview col-xs-10  no-gutter">
 
@@ -16,7 +26,15 @@ layout: with-sidebar
         {{ post.excerpt | truncatewords: 28 }}
 
         <p class="meta">
-            <a href="{{ post.author_url | prepend: site.baseurl }}">{{ post.author_name | capitalize }}</a> in <a href='{{ "/category/" | append: post.categories.first | prepend: site.baseurl }}'>{{ post.categories.first | capitalize}}</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i> {{ post.read_time }} minutes
+            <a href="{{ post.author_url | prepend: site.baseurl }}">
+                {{ post.author_name | capitalize }}
+            </a>
+            {{ in }}
+            <a href='{{ "/category/" | append: post.categories.first | prepend: site.baseurl }}'>
+                {{ post_category | capitalize }}
+            </a>
+            <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>
+            {{ post.read_time }} {{ minutes }}
         </p>
 
         </div>

@@ -13,8 +13,13 @@ layout: with-sidebar
     {% assign posts = site.posts | where:"lang", page.lang %}
     {% assign in = trans['in'][page.lang] %}
     {% assign minutes = trans['minutes'][page.lang] %}
-
+    
     {% for post in posts %}
+        {% if page.lang == "pt" %}
+            {% assign post_category = post.categories[1] %}
+        {% else %}
+            {% assign post_category = post.categories.first %}
+        {% endif %}
 
         <article class="post">
             <div class="post-preview col-xs-10  no-gutter">
@@ -24,11 +29,11 @@ layout: with-sidebar
 
                 <p class="meta">
                     <a href="{{ post.author_url | prepend: site.baseurl }}">
-                        {{ post.author_name | capitalize}}
+                        {{ post.author_name | capitalize }}
                     </a>
                     {{ in }}
                     <a href='{{ "/category/" | append: post.categories.first | prepend: site.baseurl }}'>
-                        {{ post.categories.first | capitalize }}
+                        {{ post_category | capitalize }}
                     </a>
                     <i class="link-spacer"></i>
                     <i class="fa fa-bookmark"></i>
@@ -51,11 +56,16 @@ layout: with-sidebar
     <div class="category row">
         <section>
             {% for category in site.categories %}
-
-                <div class="category-preview col-xs-6 col-sm-4 ">
-                    <h2>{{ category | first | capitalize }}</h2>
-                    <a href='{{ "/category/" | append: category.first | prepend: site.baseurl }}'><img src='{{ "/img/" | append: category.first | prepend: site.baseurl }}-thumbnail.jpg' alt="category-image"></a>
-                </div>
+                {% if category.first != "pt" %}
+                    <div class="category-preview col-xs-6 col-sm-4 ">
+                        <h2>{{ category | first | capitalize }}</h2>
+                        {% if page.lang == "pt" %}
+                            <a href='{{ "/pt" | append:"/category/" | append:category.first }}'><img src='{{ "/img/" | append: category.first }}-thumbnail.jpg' alt="category-image"></a>
+                        {% else %}
+                            <a href='{{ "/category/" | append:category.first }}'><img src='{{ "/img/" | append: category.first }}-thumbnail.jpg' alt="category-image"></a>
+                        {% endif %}
+                    </div>
+                {% endif %}
             {% endfor %}
         </section>
     </div>

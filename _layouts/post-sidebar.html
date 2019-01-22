@@ -23,12 +23,18 @@ layout: default
         </div><!-- main-content/col -->
 
         <div class="col-xs-12 col-md-3 col-md-offset-1 single-content-sidebar-area">
-
+            {% assign in = site.data.translations['in'][page.lang] %}
             <img src='{{ "/img/" | append: page.author_avatar | prepend: site.baseurl }}.jpg' class="user-icon " alt="user-image">
             <div class="meta">
 
                 <div class="sidebar-info">
-                    <a href="{{ page.author_url | prepend: site.baseurl }}">{{ page.author_name | capitalize }}</a> in <a href='{{ "/category/" | append: page.categories.first | prepend: site.baseurl }}'>{{ page.categories.first | capitalize }}</a>
+                    <a href="{{ page.author_url | prepend: site.baseurl }}">
+                        {{ page.author_name | capitalize }}
+                    </a>
+                    {{ in }}
+                    <a href='{{ "/category/" | append: page.categories.first | prepend: site.baseurl }}'>
+                        {{ page.categories.first | capitalize }}
+                    </a>
                 </div>
 
                 <div class="sidebar-readtime">

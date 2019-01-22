@@ -17,13 +17,14 @@ defaults:
      path: ""
    values:
      author: "tomrlh"
-     layout: myLayout
+     layout: index
      lang: en
      base-url: "/"
   -
    scope:
      path: pt
    values:
+     author: "tomrlh"
      lang: pt
      base-url: "/pt/"
 # Build settings
