@@ -5,7 +5,7 @@ layout: with-sidebar
 {% assign trans = site.data.translations %}
 {% assign in = site.data.translations['in'][page.lang] %}
 {% assign minutes = site.data.translations['minutes'][page.lang] %}
-{% assign posts = site.posts | where:"lang", page.lang %}
+{% assign posts = site.posts | where:"lang", page.lang | where:"category", page.category %}
 
 <div class="sub-nav">
     <a href="#" class="select-posts active">{{ trans['posts'][page.lang] }}</a>
@@ -13,12 +13,11 @@ layout: with-sidebar
 
 <div class="category-page-posts animated fadeIn ">
     {% for post in posts %}
-        {% if post.categories contains page.category %}
-            {% if page.lang == "pt" %}
-                {% assign post_category = post.categories[1] %}
-            {% else %}
-                {% assign post_category = post.categories.first %}
-            {% endif %}
+        {% if page.lang == "pt" %}
+            {% assign post_category = post.categories[1] %}
+        {% else %}
+            {% assign post_category = post.categories.first %}
+        {% endif %}
 
         <article class="post">
             <div class="post-preview col-xs-10  no-gutter">
@@ -42,13 +41,14 @@ layout: with-sidebar
             </div>
 
             {% if post.show_avatar == true %}
-            <div class=" col-xs-2  no-gutter">
-                <img src='{{ "/img/" | append: post.author_avatar | prepend: site.baseurl }}.jpg' class="user-icon user-1" alt="user-image">
-            </div>
+                <div class=" col-xs-2  no-gutter">
+                    <img src='{{ "/img/" | append: post.author_avatar | prepend: site.baseurl }}.jpg' class="user-icon user-1" alt="user-image">
+                </div>
             {% endif %}
-
         </article>
-
-        {% endif %}
     {% endfor %}
+
+    {% if posts.size <= 0 %}
+        <h3>{{ trans.no_posts_found[page.lang] }}</h3>
+    {% endif%}
 </div>

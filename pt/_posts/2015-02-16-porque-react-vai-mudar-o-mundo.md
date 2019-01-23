@@ -2,7 +2,7 @@
 layout: post-sidebar
 date: 2015-02-10
 title: "Por que React vai mudar o mundo?"
-categories: coding js
+categories: coding java
 author_name : Dan Robberts
 author_url : /author/dan
 author_avatar: dan

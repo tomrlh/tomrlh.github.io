@@ -94,3 +94,7 @@ phone_number:
 message:
   pt: 'mensagem'
   en: 'message'
+
+no_posts_found:
+  pt: 'Nenhum post encontrado :confused: .'
+  en: 'Related posts was not found :confused: .'
