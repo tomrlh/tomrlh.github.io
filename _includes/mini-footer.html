@@ -1,9 +1,6 @@
-<footer class="split-footer">
-    {% for links in site.footer_links %}
-        <a href="{{ links[1][1] }}">{{ links[1][0] }}</a>
+{% assign about = site.data.translations.about_page[page.lang] %}
 
-        {% unless forloop.last %}
-            <i class="link-spacer"></i>
-        {% endunless%}
-    {% endfor %}
+<footer class="split-footer">
+	<a href="/about">{{ about }}</a>
+	<!-- <i class="link-spacer"></i> -->
 </footer>

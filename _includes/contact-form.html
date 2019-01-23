@@ -1,24 +1,26 @@
+{% assign trans = site.data.translations %}
+
 <form action="{{ page.form_action }}">
     <div class="form-group">
-        <label for="name">Name</label>
+        <label for="name">{{ trans['name'][page.lang] | capitalize }}</label>
         <input type="text" placeholder="Jane Doe" class="form-control" name="name">
     </div>
     <div class="form-group">
-        <label for="email">Email</label>
+        <label for="email">{{ trans['email'][page.lang] | capitalize }}</label>
         <input type="text" placeholder="example@email.com" class="form-control" name="email">
     </div>
     <div class="form-group">
-        <label for="company">Company</label>
+        <label for="company">{{ trans['company'][page.lang] | capitalize }}</label>
         <input type="text" placeholder="Example Ltd" class="form-control" name="company">
     </div>
 
     <div class="form-group">
-        <label for="number">Phone Number</label>
+        <label for="number">{{ trans['phone_number'][page.lang] | capitalize }}</label>
         <input type="tel" placeholder="+44778217779" class="form-control" name="number">
     </div>
 
     <div class="form-group">
-        <label for="message">Message</label>
+        <label for="message">{{ trans['message'][page.lang] | capitalize }}</label>
         <textarea class="form-control" name="message" placeholder="Hello, lets chat"></textarea>
     </div>
 

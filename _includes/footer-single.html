@@ -1,3 +1,9 @@
+{% assign trans = site.data.translations %}
+{% assign in = site.data.translations['in'][page.lang] %}
+{% assign also_found_in = site.data.translations['also_found_in'][page.lang] %}
+{% assign published = site.data.translations['published'][page.lang] %}
+{% assign share_this_article = site.data.translations['share_this_article'][page.lang] %}
+
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-2">
@@ -5,16 +11,26 @@
         </div>
         <div class="col-xs-12 col-sm-6">
             <div class="category-list">
-                <p>Published <span>{{ page.date | date: "%b %-d, %Y" }}</span></p>
-                <p><a href="{{ page.author_url  | prepend: site.baseurl }}">{{ page.author_name | capitalize }}</a> in <a href='{{ "/category/" | append: page.categories.first | prepend: site.baseurl }}'>{{ page.categories.first | capitalize }}</a></p>
+                <p>{{ published }} <span>{{ page.date | date: "%b %-d, %Y" }}</span></p>
+                <p>
+                    <a href="{{ page.author_url  | prepend: site.baseurl }}">
+                        {{ page.author_name | capitalize }}
+                    </a>
+                    {{ in }}
+                    <a href='{{ "/category/" | append: page.categories.first | prepend: site.baseurl }}'>
+                        {{ page.categories.first | capitalize }}
+                    </a>
+                </p>
 
                 <div class="other-catergories">
-                    <h3>Also found in</h3>
+                    <h3>{{ also_found_in }}</h3>
 
                     <ul>
                         {% for category in page.categories %}
                         <li>
-                            <a href='{{ "/category/" | append: page.categories.first | prepend: site.baseurl }}'>{{ category | capitalize }}</a>
+                            <a href='{{ "/category/" | append: page.categories.first | prepend: site.baseurl }}'>
+                                {{ category | capitalize }}
+                            </a>
                             {% if forloop.last %}{% else %},{% endif %}
                         </li>
                         {% endfor %}
@@ -25,7 +41,7 @@
         </div><!-- end col -->
         <div class="col-xs-12 col-sm-4">
             <div class="social">
-                <p>Share this article</a>
+                <p>{{ share_this_article }}</a>
                 <div class="social-links">
                     <a class="social-icon" href="#" data-platform="twitter" data-message="{{ page.social-message }}" data-url="{{ page.url | prepend: site.baseurl | prepend: site.url }}"><i class="fa fa-twitter"></i></a>
 

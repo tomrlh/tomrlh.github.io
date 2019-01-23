@@ -2,6 +2,14 @@
 layout: default
 ---
 
+{% assign similar_posts = site.data.translations['similar_posts'][page.lang] %}
+{% assign in = site.data.translations['in'][page.lang] %}
+{% assign minutes = site.data.translations['minutes'][page.lang] %}
+{% if page.lang == "pt" %}
+    {% assign page_category = page.categories[1] %}
+{% else %}
+    {% assign page_category = page.categories.first %}
+{% endif %}
 <header class="hero-image" style='background-image: url({{"/img/" | append: page.feature_image | prepend: site.baseurl }}.jpg);'>
     <span class="menu-trigger animated fadeInDown">
         <span class="bar"></span>
@@ -23,7 +31,7 @@ layout: default
         </div><!-- main-content/col -->
 
         <div class="col-xs-12 col-md-3 col-md-offset-1 single-content-sidebar-area">
-            {% assign in = site.data.translations['in'][page.lang] %}
+            
             <img src='{{ "/img/" | append: page.author_avatar | prepend: site.baseurl }}.jpg' class="user-icon " alt="user-image">
             <div class="meta">
 
@@ -32,21 +40,22 @@ layout: default
                         {{ page.author_name | capitalize }}
                     </a>
                     {{ in }}
-                    <a href='{{ "/category/" | append: page.categories.first | prepend: site.baseurl }}'>
-                        {{ page.categories.first | capitalize }}
+                    <a href='{{ "/category/" | append: page_category | prepend: site.baseurl }}'>
+                        {{ page_category | capitalize }}
                     </a>
                 </div>
 
                 <div class="sidebar-readtime">
-                    <i class="fa fa-bookmark"></i> {{ page.read_time }} minute read
+                    <i class="fa fa-bookmark"></i>
+                    {{ page.read_time }} {{ minutes }}
                 </div>
 
             </div>
 
-            <h2 class="favorites">Similar Posts</h2>
-
+            <h2 class="favorites">{{ similar_posts | capitalize }}</h2>
+            
             {% for post in site.related_posts %}
-                {% if forloop.index <= 5 %}
+                {% if forloop.index <= 5 and post.lang == page.lang %}
                 <div class="similar-post">
                     <a href="{{ post.url | prepend: site.baseurl }}"><h3>{{ post.title }}</h3></a>
                 </div>
