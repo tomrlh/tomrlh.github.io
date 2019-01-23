@@ -20,7 +20,7 @@ layout: default
         <div class="col-xs-12 single-content">
             <p class="meta">
                 <a href="{{ page.author_url | prepend: site.baseurl }}">
-                    {{ page.author_name | capitalize }}
+                    {{ page.author_name }}
                 </a>
                 {{ in }}
                 <a href='{{ "/category/" | append: page.categories.first | prepend: site.baseurl }}'>

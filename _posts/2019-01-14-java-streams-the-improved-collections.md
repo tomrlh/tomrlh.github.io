@@ -3,7 +3,7 @@ layout: post
 title: "Java Streams: The Improved Collections"
 date: 2019-01-14 08:50:28
 categories: coding java
-author_name : Thiago Medeiros
+author_name : "Thiago Medeiros"
 author_url : /author/tomrlh
 author_avatar: tomrlh
 show_avatar : true
@@ -132,10 +132,3 @@ Referências:
 
 * [Stream Docs](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#filter-java.util.function.Predicate-)
 * [Whats the difference between Streams and Collections in Java 8](https://stackoverflow.com/questions/39432699/what-is-the-difference-between-streams-and-collections-in-java-8)
-
-
-{:class="table table-bordered"}
-| Tex Space     | Blue Space        | Lambda            |
-|-------------- |----------------   |------------------ |
-| sXYZ          | sBlue             | sXYZ abcde fghy   |
-| Jaobe XTZ     | Blue Game 5.2     | 5.2               |

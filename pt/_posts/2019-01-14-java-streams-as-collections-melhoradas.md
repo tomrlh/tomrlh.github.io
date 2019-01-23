@@ -3,7 +3,7 @@ layout: post-sidebar
 title: "Java Streams: As Collections Melhoradas"
 date: 2019-01-14 08:50:28
 categories: coding js
-author_name : Thiago Medeiros
+author_name : "Thiago Medeiros"
 author_url : /author/tomrlh
 author_avatar: tomrlh
 show_avatar : true

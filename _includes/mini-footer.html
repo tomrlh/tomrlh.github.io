@@ -1,6 +1,6 @@
 {% assign about = site.data.translations.about_page[page.lang] %}
 
 <footer class="split-footer">
-	<a href="/about">{{ about }}</a>
+	<a href="{{ page.lang | append:'/about' }}">{{ about }}</a>
 	<!-- <i class="link-spacer"></i> -->
 </footer>

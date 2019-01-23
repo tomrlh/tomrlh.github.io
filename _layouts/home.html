@@ -29,7 +29,7 @@ layout: with-sidebar
 
                 <p class="meta">
                     <a href="{{ post.author_url | prepend: site.baseurl }}">
-                        {{ post.author_name | capitalize }}
+                        {{ post.author_name }}
                     </a>
                     {{ in }}
                     <a href='{{ "/category/" | append: post.categories.first | prepend: site.baseurl }}'>

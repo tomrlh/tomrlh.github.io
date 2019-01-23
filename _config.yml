@@ -2,15 +2,17 @@
 title: tomrlh
 email: tomrlh.tm@gmail.com
 description: > # Writer Theme is a responsive template
- focussed on typography, minimal design and quality photography built using the Jekyll platform.
+ A developer submerged in web development technologies, focused in Java ecosystem, and other programmer stuff.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site
+url: "tomurlh.com" # the base hostname & protocol for your site
 github_username: tomrlh
 enable_retina: false
 permalink: /:categories/:title
 markdown: kramdown
+highlighter: rouge
 plugins:
   - jemoji
+  - jekyll-seo-tag
 defaults:
   -
    scope:
