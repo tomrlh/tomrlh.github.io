@@ -34,7 +34,7 @@ The Streams have 3 parts:
 
 
 
-### _Source_
+### Source
 
 There are some ways to create a Stream:
 

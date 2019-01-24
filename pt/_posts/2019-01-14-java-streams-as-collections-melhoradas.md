@@ -34,7 +34,7 @@ Seguindo a analogia, o produto é o dado, e cada etapa da fabricação é uma _O
 
 
 
-### _Fonte_
+### Fonte
 
 Existem algumas maneiras de se criar um Stream:
 
