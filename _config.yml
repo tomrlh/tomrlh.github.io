@@ -11,11 +11,6 @@ enable_retina: false
 permalink: /:categories/:title
 markdown: kramdown
 highlighter: rouge
-span:
-  line_numbers: false
-block:
-  line_numbers: true
-  start_line: 1
 plugins:
   - jemoji
   - jekyll-seo-tag

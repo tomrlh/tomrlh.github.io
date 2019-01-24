@@ -1,4 +1,7 @@
-.highlight { font-family: verdana; }
+.highlight * {
+	/*font-family: "Andale Mono", Times, serif;*/
+	font-size: 1.4em;
+}
 .highlight .hll { background-color: #ffffcc }
 .highlight .c { color: #0099FF; font-style: italic } /* Comment */
 .highlight .err { color: #AA0000; background-color: #FFAAAA } /* Error */

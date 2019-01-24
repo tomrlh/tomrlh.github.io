@@ -17,94 +17,89 @@ i18n-link: java-streams-the-improved-collections
 
 
 
+A Java Stream is a data sequence, that are produced as in a factory: the product goes through a nuumber of finite steps that depends each other. When the product goes through one step, it doesn't come back anymore, the operation is realized then the stream goes on.
 
-Um Stream em Java é uma sequência de dados, que são produzidos e manuseados como em uma fábrica: um produto passa por um número de etapas finitas que dependem uma da outra. Quando o produto passa por uma etapa, não volta mais, ou seja, a operação é realizada e o fluxo segue.
+Following this example, the product is the data, and in which step is called _Stream Operation_.
+The Streams have 3 parts:
 
-Seguindo a analogia, o produto é o dado, e cada etapa da fabricação é uma _Operação Stream_. Os Streams possuem 3 partes:
-
-![Partes do Stream](/img/post-assets/java-streams-the-improved-collections/stream-parts-pt.png)
+![Stream parts](/img/post-assets/java-streams-the-improved-collections/stream-parts.png)
 
 <!-- ![The Stream Parts](/img/post-assets/java-streams-the-improved-collections/stream-parts-en.png) -->
 
-1. **Fonte**: a fonte de dados;
-2. **Operações Intermediárias**: métodos de manipulação/transformação dos dados;
-3. **Operação Terminal**: entrega o resultado produzido.
+1. **Source**: the data source;
+2. **Intermediate Operations**: methods to transform/manipulate the data;
+3. **Terminal Operation**: deliver the produced result.
 
 
 
 
 
-### _Fonte_
+### _Source_
 
-Existem algumas maneiras de se criar um Stream:
-
-~~~ python
-x = ('a', 1, False)
-~~~
+There are some ways to create a Stream:
 
 ~~~ java
-Stream<String> vazio = Stream.empty();
+Stream<String> empty = Stream.empty();
 
-Stream<Integer> umElemento = Stream.of(1);
+Stream<Integer> oneElement = Stream.of(1);
 Stream<Integer> array = Stream.of(1, 2, 3);
 
-// A partir de uma lista
-Stream<String> lista = Arrays.asList("a", "b", "c");
-Stream<String> deUmaLista = list.stream();
+// From a list
+Stream<String> list = Arrays.asList("a", "b", "c");
+Stream<String> fromAList = list.stream();
 ~~~
 
 
 
 
 
-### Principais Operações Intermediárias
+### Common Intermetiate Operations
 
-fazer tabela com principais métodos intermediários
-
-
-
-
-
-### Principais Operações Terminais
-
-fazer tabela com principais métodos terminais
+Table with methods
 
 
 
 
 
-## Por que usar Streams?
+### Common Terminal Operations
 
-A maioria do que se faz com listas, se faz com streams. Porém, Streams possui vantagens como:
-
-* legibilidade:
-* menos código:
-- poder:
-- eficiência:
+Table with methods
 
 
 
 
-## Na prática
+
+## Why to use Streams?
+
+Most part lists manipulations can be done with streams. However streams have some advantages like:
+
+* readability:
+* clean code:
+- powerful:
+- efficient:
 
 
-Digamos que se quer os 3 primeiros nomes de uma lista de strings, que comecem com a letra _"b"_ e que tenha tamanho _4_. Usando listas, teriamos o seguinte código:
+
+
+## Hands on code
+
+Let's say that we want the 3 first names from a string list, that begins with _"b"_ and have size _4_. Using lists, we could use:
 
 ~~~ java
-List<String> lista = Arrays.asList(
-	"baba", "carro", "livro", "base", "carta", "bebê", "mesa"
+List<String> list = Arrays.asList(
+	"baby", "car", "book", "letter", "world", "word", "table"
 );
-List<String> listaFiltrada = new ArrayList<>();
+List<String> filteredList = new ArrayList<>();
 
-for(String palavra: lista) {
-	if(palavra.length() == 4 && palavra.startsWith("b"))
-	    listaFiltrada.add(palavra);
+for(String word: list) {
+	if(word.length() == 4 && word.startsWith("b"))
+	    filteredList.add(word);
 }
-Collections.sort(listaFiltrada);
-Iterator<String> iter = listaFiltrada.iterator();
+Collections.sort(filteredList);
+Iterator<String> iter = filteredList.iterator();
 
-for(String palavra: listaFiltrada) {
-	System.out.println(palavra);
+for(String word: filteredList) {
+	System.out.println(word);
 }
 ~~~
 
@@ -112,11 +107,11 @@ for(String palavra: listaFiltrada) {
 
 
 
-Agora com Streams:
+Now with Streams:
 
 ~~~ java
 Stream<String> stream = Stream.of(
-	"baba", "carro", "livro", "base", "carta", "bebê", "mesa"
+	"baby", "car", "book", "letter", "world", "word", "table"
 );
 stream.filter(p -> p.length() == 4)
 	.filter(p.startsWith("b"))
@@ -124,15 +119,13 @@ stream.filter(p -> p.length() == 4)
 	.forEach(System.out::println);
 ~~~
 
-Perceba que os métodos podem ser encadeados e que a maioria dos métodos da interface Stream 
-recebem _Interfaces Funcionais_. A [filter()](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#filter-java.util.function.Predicate-) 
-recebe um [Predicate](https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html). 
-[sorted()](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#sorted--) 
-possui duas versões, uma que não recebe nenhum parâmetro, outra que recebe um 
-[Comparator](https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html). O
-[forEach()](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#forEach-java.util.function.Consumer-) é bem útil pois pode substituir o for tradicional e o melhorado, trazendo mais legibilidade. Este recebe um [Consumer](https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html).
+Notice that methods can be chained and the most part of Stream interface methods receives a
+_Functional Interface_. A [filter()](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#filter-java.util.function.Predicate-) 
+receives a [Predicate](https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html). [sorted()](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#sorted--) 
+has two version, one receives no parameters, the other receives a [Comparator](https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html). The
+[forEach()](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#forEach-java.util.function.Consumer-) is very useful, cause can replace the traditional/enhanced for, bringing more readability. The second receives a [Consumer](https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html).
 
-Referências:
+References:
 
 * [Stream Docs](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#filter-java.util.function.Predicate-)
 * [Whats the difference between Streams and Collections in Java 8](https://stackoverflow.com/questions/39432699/what-is-the-difference-between-streams-and-collections-in-java-8)
