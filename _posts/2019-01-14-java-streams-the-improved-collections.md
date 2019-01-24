@@ -38,7 +38,11 @@ Seguindo a analogia, o produto é o dado, e cada etapa da fabricação é uma _O
 
 Existem algumas maneiras de se criar um Stream:
 
-{% highlight javascript %}
+~~~ python
+x = ('a', 1, False)
+~~~
+
+~~~ java
 Stream<String> vazio = Stream.empty();
 
 Stream<Integer> umElemento = Stream.of(1);
@@ -47,7 +51,7 @@ Stream<Integer> array = Stream.of(1, 2, 3);
 // A partir de uma lista
 Stream<String> lista = Arrays.asList("a", "b", "c");
 Stream<String> deUmaLista = list.stream();
-{% endhighlight %}
+~~~
 
 
 
@@ -86,7 +90,7 @@ A maioria do que se faz com listas, se faz com streams. Porém, Streams possui v
 
 Digamos que se quer os 3 primeiros nomes de uma lista de strings, que comecem com a letra _"b"_ e que tenha tamanho _4_. Usando listas, teriamos o seguinte código:
 
-{% highlight java %}
+~~~ java
 List<String> lista = Arrays.asList(
 	"baba", "carro", "livro", "base", "carta", "bebê", "mesa"
 );
@@ -102,7 +106,7 @@ Iterator<String> iter = listaFiltrada.iterator();
 for(String palavra: listaFiltrada) {
 	System.out.println(palavra);
 }
-{% endhighlight %}
+~~~
 
 
 
@@ -110,7 +114,7 @@ for(String palavra: listaFiltrada) {
 
 Agora com Streams:
 
-{% highlight java %}
+~~~ java
 Stream<String> stream = Stream.of(
 	"baba", "carro", "livro", "base", "carta", "bebê", "mesa"
 );
@@ -118,7 +122,7 @@ stream.filter(p -> p.length() == 4)
 	.filter(p.startsWith("b"))
 	.sorted()
 	.forEach(System.out::println);
-{% endhighlight %}
+~~~
 
 Perceba que os métodos podem ser encadeados e que a maioria dos métodos da interface Stream 
 recebem _Interfaces Funcionais_. A [filter()](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#filter-java.util.function.Predicate-) 
