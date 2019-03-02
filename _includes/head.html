@@ -2,6 +2,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     {% seo %}
     <meta itemprop="description" name="description" content="{% if page.description %}{{ page.description | truncate: 160 }}{% else %}{{ site.description | truncate: 160  }}{% endif %}" />
     <title>{{ site.title }} | {% if page.title %}{{ page.title }}{% endif %}</title>
@@ -16,6 +17,7 @@
         <script src="{{ "/js/vendor/html5shiv.min.js" | prepend: site.baseurl }}"></script>
     <![endif]-->
 
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="{{ site.baseurl }}/css/custom.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/css/social-section.css">
     <!-- <link rel="stylesheet" href="{{ site.baseurl }}/css/monokai.css"> -->
