@@ -2,15 +2,15 @@
 layout: post
 title: "Java Streams: The Improved Collections"
 date: 2019-01-14 08:50:28
-categories: coding java
+categories: java coding journey
 author_name : "Thiago Medeiros"
 author_url : /author/tomrlh
 author_avatar: tomrlh
 show_avatar : true
 read_time : 3
-feature_image: feature-laptop
+feature_image: feature-sea
 show_related_posts: true
-square_related: recommend-laptop
+square_related: recommend-sea
 i18n-link: java-streams-the-improved-collections
 ---
 

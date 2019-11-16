@@ -1,4 +1,3 @@
-{% if page.include_cta_btn == true %}
 {% assign langs = site.data.languages %}
 <div class="secondary-info">
     <div class="lang">
@@ -8,6 +7,7 @@
             <a class="{{ langs.pt.icon }}" href="/pt"></a> | <a class="{{ langs.en.icon }}" href="/"></a>
         </p>
     </div>
-
+    
 </div>
+{% if page.include_cta_btn == true %}
 {% endif %}

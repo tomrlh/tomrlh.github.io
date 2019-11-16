@@ -1,8 +1,8 @@
 ---
 layout: post-sidebar
-title: "Quando comecei a trabalhar em uma empreda CMMI nível 5"
+title: "Quando comecei a trabalhar em uma empresa CMMI 5"
 date: 2019-03-24 22:21:20
-categories: coding java
+categories: [coding,java]
 author_name : "Thiago Medeiros"
 author_url : /author/tomrlh
 author_avatar: tomrlh

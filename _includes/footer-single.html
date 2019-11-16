@@ -18,7 +18,11 @@
                     </a>
                     {{ in }}
                     <a href='{{ "/category/" | append: page.categories.first | prepend: site.baseurl }}'>
-                        {{ page.categories.first | capitalize }}
+                        {% if page.lang == "pt" %}
+                        {{ page.categories[1] | capitalize }}
+                        {% else %}
+                            {{ page.categories.first | capitalize }}
+                        {% endif %}
                     </a>
                 </p>
 
