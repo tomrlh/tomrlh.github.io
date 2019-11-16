@@ -10,6 +10,9 @@ posts:
 categories:
   en: "Categories"
   pt: "Categorias"
+coding.category:
+  en: "coding"
+  pt: "codando"
 minutes:
   en: "minutes"
   pt: "minutos"

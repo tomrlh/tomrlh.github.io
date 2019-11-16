@@ -22,7 +22,7 @@ layout: with-sidebar
         {% endif %}
 
         <article class="post">
-            <div class="post-preview col-xs-10  no-gutter">
+            <div class="post-preview col-xs-12  no-gutter">
                 <h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
 
                 {{ post.excerpt | truncatewords: 28 }}
@@ -43,9 +43,9 @@ layout: with-sidebar
 
 
             {% if post.show_avatar == true %}
-            <div class=" col-xs-2  no-gutter">
-                <img src="{{ site.baseurl}}/img/{{ post.author_avatar }}.jpg" class="user-icon user-1" alt="user-image">
-            </div>
+                <!--div class=" col-xs-2  no-gutter">
+                    <img src="{{ site.baseurl}}/img/{{ post.author_avatar }}.jpg" class="user-icon user-1" alt="user-image">
+                </div-->
             {% endif %}
         </article>
     {% endfor %}
@@ -56,6 +56,10 @@ layout: with-sidebar
     <div class="category row">
         <section>
             {% for category in site.categories %}
+            <h3>{{category.first}} {{page.lang}} {{site.categories.size}}</h3>
+            {% if site.exclude_pages contains entry.path %}
+                <!-- verificar o nome da categoria e exibi-la de acordo com a page.lang -->
+            {% endif %}
                 {% if category.first != "pt" %}
                     <div class="category-preview col-xs-6 col-sm-4 ">
                         <h2>{{ category | first | capitalize }}</h2>
