@@ -10,9 +10,45 @@ posts:
 categories:
   en: "Categories"
   pt: "Categorias"
-coding.category:
+
+# Categories translations
+java:
+  en: "java"
+  pt: "java"
+coding:
   en: "coding"
-  pt: "codando"
+  pt: "condando"
+journey:
+  en: "journey"
+  pt: "jornada"
+js:
+  en: "js"
+  pt: "js"
+storytime:
+  en: "storytime"
+  pt: "hora da história"
+mystudies:
+  en: "my studies"
+  pt: "estudando"
+mystudies:
+  en: "life"
+  pt: "vida"
+motivation:
+  en: "motivation"
+  pt: "motivação"
+leadership:
+  en: "leadership"
+  pt: "liderança"
+css:
+  en: "css"
+  pt: "css"
+travel:
+  en: "travel"
+  pt: "viagens"
+reading:
+  en: "readings"
+  pt: "leituras"
+
 minutes:
   en: "minutes"
   pt: "minutos"

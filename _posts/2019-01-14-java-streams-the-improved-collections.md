@@ -17,7 +17,7 @@ i18n-link: java-streams-the-improved-collections
 
 
 
-A Java Stream is a data sequence, that are produced as in a factory: the product goes through a nuumber of finite steps that depends each other. When the product goes through one step, it doesn't come back anymore, the operation is realized then the stream goes on.
+A Java Stream is a data sequence, that are produced as in a factory: the product goes through a number of finite steps that depends each other. When the product goes through one step, it doesn't come back anymore, the operation is realized then the stream goes on.
 
 Following this example, the product is the data, and in which step is called _Stream Operation_.
 The Streams have 3 parts:

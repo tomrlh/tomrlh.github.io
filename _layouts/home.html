@@ -62,7 +62,8 @@ layout: with-sidebar
                 
                 {% if category.first != "pt" %}
                     <div class="category-preview col-xs-6 col-sm-4 ">
-                        <h2>{{ category | first | capitalize }}</h2>
+                        <!--h2>{{ category | first | capitalize }}</h2-->
+                        <h2>{{ trans[category.first][page.lang] | capitalize }}</h2>
                         {% if page.lang == "pt" %}
                             <a href='{{ "/pt" | append:"/category/" | append:category.first }}'><img src='{{ "/img/" | append: category.first }}-thumbnail.jpg' alt="category-image"></a>
                         {% else %}

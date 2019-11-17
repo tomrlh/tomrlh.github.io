@@ -5,7 +5,7 @@ description: > # Writer Theme is a responsive template
  A developer submerged in web development technologies,
  focused in Java ecosystem, and other programmer stuff.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "tomurlh.com" # the base hostname & protocol for your site
+url: "http://tomrlh.com" # the base hostname & protocol for your site
 github_username: tomrlh
 enable_retina: false
 permalink: /:categories/:title
@@ -32,4 +32,3 @@ defaults:
      base-url: "/pt/"
 # Build settings
 # markdown: kramdown
-  
