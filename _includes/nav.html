@@ -15,7 +15,7 @@
         <li>
             <i class="fa fa-list-alt"></i>
             {% if page.lang == "pt" %}
-                <a href="{{ '/pt' | append: '/categories'}}">{{ trans['categories'][page.lang] }}</a>
+                <a href="{{ '/pt' | append: 'categories'}}">{{ trans['categories'][page.lang] }}</a>
             {% else %}
                 <a href="{{ '/' | append: 'categories'}}">{{ trans['categories'][page.lang] }}</a>
             {% endif %}
@@ -26,9 +26,9 @@
         <li>
             <i class="fa fa-book"></i>
             {% if page.lang == "pt" %}
-                <a href="{{ '/pt' | append: '/posts'}}">{{ trans['posts'][page.lang] }}</a>
+                <a href="{{ '/pt' | append: 'posts'}}">{{ trans['posts'][page.lang] }}</a>
             {% else %}
-                <a href="{{ '/' | append: '/posts'}}">{{ trans['posts'][page.lang] }}</a>
+                <a href="{{ '/' | append: 'posts'}}">{{ trans['posts'][page.lang] }}</a>
             {% endif %}
         </li>
 
@@ -37,9 +37,9 @@
         <li>
             <i class="fa fa-envelope"></i>
             {% if page.lang == "pt" %}
-                <a href="{{ '/pt' | append: '/contact'}}">{{ trans['contact_page'][page.lang] }}</a>
+                <a href="{{ '/pt' | append: 'contact'}}">{{ trans['contact_page'][page.lang] }}</a>
             {% else %}
-                <a href="{{ '/' | append: '/contact'}}">{{ trans['contact_page'][page.lang] }}</a>
+                <a href="{{ '/' | append: 'contact'}}">{{ trans['contact_page'][page.lang] }}</a>
             {% endif %}
         </li>
 
@@ -48,9 +48,9 @@
         <li>
         	<i class="fa fa-id-badge"></i>
             {% if page.lang == "pt" %}
-                <a href="{{ '/pt' | append: '/author/tomrlh'}}">{{ trans['author_page'][page.lang] }}</a>
+                <a href="{{ '/pt' | append: 'author/tomrlh'}}">{{ trans['author_page'][page.lang] }}</a>
             {% else %}
-                <a href="{{ '/' | append: '/author/tomrlh'}}">{{ trans['author_page'][page.lang] }}</a>
+                <a href="{{ '/' | append: 'author/tomrlh'}}">{{ trans['author_page'][page.lang] }}</a>
             {% endif %}
         </li>
     </ul>

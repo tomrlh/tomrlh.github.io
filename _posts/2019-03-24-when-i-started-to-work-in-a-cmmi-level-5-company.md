@@ -10,7 +10,7 @@ show_avatar : true
 read_time : 3
 feature_image: feature-flexibility
 show_related_posts: true
-square_related: recommend-laptop
+square_related: recommend-flexibility
 i18n-link: when-i-started-to-work-in-a-cmmi-level-5-company
 ---
 
