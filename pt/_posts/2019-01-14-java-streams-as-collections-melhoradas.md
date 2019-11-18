@@ -39,7 +39,7 @@ Seguindo a analogia, o produto é o dado, e cada etapa da fabricação é uma _O
 
 Existem algumas maneiras de se criar um Stream:
 
-{% highlight javascript %}
+{% highlight java %}
 Stream<String> vazio = Stream.empty();
 
 Stream<Integer> umElemento = Stream.of(1);
