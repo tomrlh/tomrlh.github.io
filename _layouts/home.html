@@ -56,9 +56,6 @@ layout: with-sidebar
     <div class="category row">
         <section>
             {% for category in site.categories %}
-                {% if site.exclude_pages contains entry.path %}
-                    <!-- verificar o nome da categoria e exibi-la de acordo com a page.lang -->
-                {% endif %}
                 
                 {% if category.first != "pt" %}
                     <div class="category-preview col-xs-6 col-sm-4 ">
