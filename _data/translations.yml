@@ -61,6 +61,12 @@ all_posts_by:
 read_different_language:
   en: "Read this site in a different language"
   pt: "Leia este site em outro idioma"
+all_posts:
+  en: "All Posts"
+  pt: "Todas Postagens"
+all_categories:
+  en: "All Categories"
+  pt: "Todas Categorias"
 home_page:
   en: 'Home'
   pt: 'Início'

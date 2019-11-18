@@ -1,0 +1,31 @@
+---
+layout: with-sidebar
+---
+
+{% assign trans = site.data.translations %}
+
+<h2>{{ trans['all_categories'][page.lang]}}</h2>
+
+<div>
+    <div class="category row">
+        <section>
+            {% for category in site.categories %}
+                {% if site.exclude_pages contains entry.path %}
+                    <!-- verificar o nome da categoria e exibi-la de acordo com a page.lang -->
+                {% endif %}
+                
+                {% if category.first != "pt" %}
+                    <div class="category-preview col-xs-6 col-sm-4 ">
+                        <!--h2>{{ category | first | capitalize }}</h2-->
+                        <h2>{{ trans[category.first][page.lang] | capitalize }}</h2>
+                        {% if page.lang == "pt" %}
+                            <a href='{{ "/pt" | append:"/category/" | append:category.first }}'><img src='{{ "/img/" | append: category.first }}-thumbnail.jpg' alt="category-image"></a>
+                        {% else %}
+                            <a href='{{ "/category/" | append:category.first }}'><img src='{{ "/img/" | append: category.first }}-thumbnail.jpg' alt="category-image"></a>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </section>
+    </div>
+</div>

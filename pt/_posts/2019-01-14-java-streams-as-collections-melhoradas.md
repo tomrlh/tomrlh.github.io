@@ -12,6 +12,7 @@ feature_image: feature-sea
 show_related_posts: true
 square_related: recommend-sea
 i18n-link: java-streams-as-collections-melhoradas
+lang: pt
 ---
 
 

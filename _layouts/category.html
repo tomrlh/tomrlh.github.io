@@ -5,45 +5,46 @@ layout: with-sidebar
 {% assign trans = site.data.translations %}
 {% assign in = site.data.translations['in'][page.lang] %}
 {% assign minutes = site.data.translations['minutes'][page.lang] %}
-{% assign posts = site.posts | where:"lang", page.lang | where:"category", page.category %}
-
+{% assign posts = site.posts | where:"lang", page.lang %}
 <div class="sub-nav">
     <a href="#" class="select-posts active">{{ trans['posts'][page.lang] }}</a>
 </div>
 
 <div class="category-page-posts animated fadeIn ">
     {% for post in posts %}
-        {% if page.lang == "pt" %}
-            {% assign post_category = post.categories[1] %}
-        {% else %}
-            {% assign post_category = post.categories.first %}
-        {% endif %}
+        {% if post.categories contains page.category %}
+            {% if page.lang == "pt" %}
+                {% assign post_category = post.categories[1] %}
+            {% else %}
+                {% assign post_category = post.categories.first %}
+            {% endif %}
 
-        <article class="post">
-            <div class="post-preview col-xs-10  no-gutter">
+            <article class="post">
+                <div class="post-preview col-xs-12  no-gutter">
 
-            <h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+                <h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
 
-            {{ post.excerpt | truncatewords: 28 }}
+                {{ post.excerpt | truncatewords: 28 }}
 
-            <p class="meta">
-                <a href="{{ post.author_url | prepend: site.baseurl }}">
-                    {{ post.author_name }}
-                </a>
-                {{ in }}
-                <a href='{{ "/category/" | append: post.categories.first | prepend: site.baseurl }}'>
-                    {{ post_category | capitalize }}
-                </a>
-                <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>
-                {{ post.read_time }} {{ minutes }}
-            </p>
+                <p class="meta">
+                    <a href="{{ post.author_url | prepend: site.baseurl }}">
+                        {{ post.author_name }}
+                    </a>
+                    {{ in }}
+                    <a href='{{ "/category/" | append: post.categories.first | prepend: site.baseurl }}'>
+                        {{ post_category | capitalize }}
+                    </a>
+                    <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>
+                    {{ post.read_time }} {{ minutes }}
+                </p>
 
-            </div>
-
-            {% if post.show_avatar == true %}
-                <div class=" col-xs-2  no-gutter">
-                    <img src='{{ "/img/" | append: post.author_avatar | prepend: site.baseurl }}.jpg' class="user-icon user-1" alt="user-image">
                 </div>
+
+                {% if post.show_avatar == true %}
+                    <!--div class=" col-xs-2  no-gutter">
+                        <img src='{{ "/img/" | append: post.author_avatar | prepend: site.baseurl }}.jpg' class="user-icon user-1" alt="user-image">
+                    </div-->
+                {% endif %}
             {% endif %}
         </article>
     {% endfor %}

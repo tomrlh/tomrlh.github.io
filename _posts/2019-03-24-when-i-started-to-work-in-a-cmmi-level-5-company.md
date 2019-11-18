@@ -2,7 +2,7 @@
 layout: post
 title: "When I Started To Work in a CMMI Level 5 Company"
 date: 2019-03-24 22:21:20
-categories: coding java
+categories: journey
 author_name : "Thiago Medeiros"
 author_url : /author/tomrlh
 author_avatar: tomrlh
