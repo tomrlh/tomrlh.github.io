@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-sidebar
 title: "Java Streams: The Improved Collections"
 date: 2019-01-14 08:50:28
 categories: java coding

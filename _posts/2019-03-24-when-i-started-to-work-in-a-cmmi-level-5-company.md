@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-sidebar
 title: "When I Started To Work in a CMMI Level 5 Company"
 date: 2019-03-24 22:21:20
 categories: journey
