@@ -19,6 +19,12 @@ lang: pt
 
 
 
-Esse dia foi top
+//TODO
 
-Referências:
+1) mostrar rota sendo acessada pelo POSTMAN, mas não pelo Browser
+
+2) iniciar servidor Python de arquivos e fazer requisição para mostrar a ORIGEM
+
+3) permitir ORIGEM exemplificada
+
+4) fazer requisição novamente
