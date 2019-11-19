@@ -1,0 +1,20 @@
+Meu site irá ter:
+
+Home
+
+Articles
+
+About
+
+Search
+
+Work
+
+What I learned today
+
+
+feature-img: height larger than 1200
+
+img-thumbnail: 368x620
+
+recommend-img: 800x800
