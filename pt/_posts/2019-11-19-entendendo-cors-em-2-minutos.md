@@ -21,6 +21,8 @@ lang: pt
 
 //TODO
 
+0) explicar o CORS
+
 1) mostrar rota sendo acessada pelo POSTMAN, mas não pelo Browser
 
 2) iniciar servidor Python de arquivos e fazer requisição para mostrar a ORIGEM
@@ -28,3 +30,54 @@ lang: pt
 3) permitir ORIGEM exemplificada
 
 4) fazer requisição novamente
+
+
+
+0)
+
+Vocẽ já viu esta imagem alguma vez?
+
+[imagem com a mensagem do CORS]
+
+É um problema que ocorre quando se faz uma requisição HTTP para algum domínio que não está devidamente configurado para suportar o CORS. Provavelmente você soube resolvê-lo, mas vamos tirar os panos de cima desta requisição e entender como este erro acontece.
+
+### O que é o CORS
+
+Em uma frase: é um mecanismo que permite requisições somente por _clientes_ identificados.
+Entenda _clientes_ por domínio ou seja, de onde a requisição veio.
+
+
+A requisição feita fora de um browser não irá lançar este erro, pois não implementam a Same Origin Policy [https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy].
+Ex: requisições via postman, curl ou outros clientes HTTP irão funcionar corretamente.
+
+
+
+.. em andamento
+
+next:
+
+- implementar e deployar spark java simple api (Heroku)
+
+- implementar servidor de arquivos Python que será o cliente Http.
+Este faz a requisição a API vai ajax
+
+- fazer a requisição via Postman e mostrar o resultado.
+fazer via Browser e mostrar o resultado
+
+- adicionar os headers no cliente http e fazer de novo (continuará o bloqueio do CORS).
+Permitir no cliente e fazer a request de novo (irá funcionar).
+Para permitir (https://gist.github.com/saeidzebardast/e375b7d17be3e0f4dddf)
+
+
+
+
+Eu preparei um simples cliente para exemplificar isto:
+
+- código do cliente fazendo a consulta. JSFiddle mostra o erro CORS,
+POSTMAN mostra a requisição funcionando
+
+- código do serviço mais simples possível (Spring ou Python).
+O cliente irá consumir o serviço
+
+
+
