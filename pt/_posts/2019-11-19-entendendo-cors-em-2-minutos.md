@@ -50,6 +50,33 @@ Entenda _clientes_ por domínio ou seja, de onde a requisição veio.
 A requisição feita fora de um browser não irá lançar este erro, pois não implementam a Same Origin Policy [https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy].
 Ex: requisições via postman, curl ou outros clientes HTTP irão funcionar corretamente.
 
+[imagem explicativa]
+
+Esta é a conversa de origens que não implementam a política SOP:
+
+> **HTTP client** - _servidor, me dê o recurso /index.html, please :pray:_
+
+> **Servidor** - _claro, tendo em vista que meu serviço é público, tome_ :package:
+
+> **HTTP client** - _valeu_ :v:
+
+
+Os browsers, por padrão implementam esta política, então seria assim:
+
+
+> **Browser** - _servidor, **quais recursos você tem disponível, e quais eu posso pedir**_ :eyes: ?
+
+> **Servidor** - _bem, meus recursos são públicos, portanto todos, e vendo aqui na minha lista,
+> 		   você está liberado para perdir o que quiser_
+
+> **Browser** - _sendo assim, me dê o recurso /index.html por gentileza_ :thumbsup:
+
+> **Servidor** - _claro, ai vai_ :package: :wave:
+
+> **Browser** - _valeu_ :v:
+
+
+
 
 
 .. em andamento
