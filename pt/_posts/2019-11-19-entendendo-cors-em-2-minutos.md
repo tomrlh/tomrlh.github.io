@@ -19,92 +19,124 @@ lang: pt
 
 
 
-//TODO
 
-0) explicar o CORS
+Se está aqui, provavelmente você já viu esta mensagem:
 
-1) mostrar rota sendo acessada pelo POSTMAN, mas não pelo Browser
+`Access to XMLHttpRequest at 'destination domain' from origin 'origin domain' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
 
-2) iniciar servidor Python de arquivos e fazer requisição para mostrar a ORIGEM
-
-3) permitir ORIGEM exemplificada
-
-4) fazer requisição novamente
-
-
-
-0)
-
-Vocẽ já viu esta imagem alguma vez?
-
-[imagem com a mensagem do CORS]
-
-É um problema que ocorre quando se faz uma requisição HTTP para algum domínio que não está devidamente configurado para suportar o CORS. Provavelmente você soube resolvê-lo, mas vamos tirar os panos de cima desta requisição e entender como este erro acontece.
+Esta mensagem ocorre quando se faz uma requisição HTTP para algum domínio que não está devidamente configurado para suportar o CORS. Vamos tirar os panos de cima desta política para na próxima vez que ver este erro, não se espantar e saber exatamente como resolver.
 
 ### O que é o CORS
 
-Em uma frase: é um mecanismo que permite requisições somente por _clientes_ identificados.
-Entenda _clientes_ por domínio ou seja, de onde a requisição veio.
+Em uma frase: 
+> é um mecanismo que permite requisições somente por _clientes_ identificados.
+
+Entenda _clientes_ como o domínio de onde a requisição veio.
 
 
-A requisição feita fora de um browser não irá lançar este erro, pois não implementam a Same Origin Policy [https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy].
-Ex: requisições via postman, curl ou outros clientes HTTP irão funcionar corretamente.
+A requisição feita fora de um browser não irá lançar este erro, pois são os browsers que explicitamente implementam a [Same Origin Policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy).
+Portanto, requisições via postman, curl ou outros clientes HTTP irão funcionar normalmente.
 
-[imagem explicativa]
+
+![Conversa](/img/post-assets/understand-cors-2-minutes/conversation.jpg)
+
 
 Esta é a conversa de origens que não implementam a política SOP:
 
-> **HTTP client** - _servidor, me dê o recurso /index.html, please :pray:_
+> **HTTP client** - _servidor, me dê o recurso /index.html :pray:_
 
-> **Servidor** - _claro, tendo em vista que meu serviço é público, tome_ :package:
+> **Servidor** - _claro, tome_ :package:
 
 > **HTTP client** - _valeu_ :v:
 
 
-Os browsers, por padrão implementam esta política, então seria assim:
+Os browser e servidor, a conversa seria:
 
 
-> **Browser** - _servidor, **quais recursos você tem disponível, e quais eu posso pedir**_ :eyes: ?
+> **Browser** - _servidor, **quais recursos você tem disponível, e quais posso obter**_ :eyes: ?
 
-> **Servidor** - _bem, meus recursos são públicos, portanto todos, e vendo aqui na minha lista,
-> 		   você está liberado para perdir o que quiser_
+> **Servidor** - _bem, meus recursos são públicos, portanto todos_
 
-> **Browser** - _sendo assim, me dê o recurso /index.html por gentileza_ :thumbsup:
+> **Browser** - _sendo assim, me dê o recurso /index.html_ :thumbsup:
 
 > **Servidor** - _claro, ai vai_ :package: :wave:
 
 > **Browser** - _valeu_ :v:
 
 
+Sendo assim, requisições de recursos para o mesmo servidor de onde a requisição partiu, a política CORS não é aplicada.
+Porém, requisições de recursos de um servidor para outro, é preciso passar na validação do CORS para que o recurso seja entregue.
+
+![Same Origin Policy](/img/post-assets/understand-cors-2-minutes/same-origin-policy.svg)
+
+### Na prática
+
+Para exemplificar esta comunicação, levantei um servidor [Javalin](https://javalin.io) simples que permite somente a origem 
+**[localhost:8050](https://javalin-simple-service.herokuapp.com/)**, *quando implementando a política CORS*.
 
 
-
-.. em andamento
-
-next:
-
-- implementar e deployar spark java simple api (Heroku)
-
-- implementar servidor de arquivos Python que será o cliente Http.
-Este faz a requisição a API vai ajax
-
-- fazer a requisição via Postman e mostrar o resultado.
-fazer via Browser e mostrar o resultado
-
-- adicionar os headers no cliente http e fazer de novo (continuará o bloqueio do CORS).
-Permitir no cliente e fazer a request de novo (irá funcionar).
-Para permitir (https://gist.github.com/saeidzebardast/e375b7d17be3e0f4dddf)
+#### Servidor permitingo origem
 
 
+{% highlight java %}
+import io.javalin.Javalin;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Javalin app = Javalin.create(config -> {
+			config.enableCorsForOrigin("http://localhost:8050");
+		})
+			.start(getHerokuAssignedPort()).get("/", ctx -> ctx.result("Hello! You have crossed CORS policy"));
+	}
+
+	private static int getHerokuAssignedPort() {
+		String herokuPort = System.getenv("PORT");
+		if (herokuPort != null) {
+			return Integer.parseInt(herokuPort);
+		}
+		return 7000;
+	}
+}
+{% endhighlight %}
 
 
-Eu preparei um simples cliente para exemplificar isto:
+#### Servidor permitingo origem
 
-- código do cliente fazendo a consulta. JSFiddle mostra o erro CORS,
-POSTMAN mostra a requisição funcionando
-
-- código do serviço mais simples possível (Spring ou Python).
-O cliente irá consumir o serviço
+Para realizar a requisição ao servidor de uma origem diferente, o que de fato irá realizar o cruzamento de origens, foi usado o [Simple HTTP Server](https://docs.python.org/2/library/simplehttpserver.html):
 
 
+{% highlight html %}
+<html>
+	<head>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>		
+	</head>
 
+	<body>
+		<button onclick="search()">Execute Request to other origin</button>
+
+		<script>
+		function search() {
+			axios.get('https://javalin-simple-service.herokuapp.com/', {
+				params: {},
+				headers: {'randomHeader': 'randomValue'}
+			})
+			.then(function (response) {
+				console.log(response);
+			})
+		}
+		</script>
+	</body>
+</html>
+{% endhighlight %}
+
+
+### Por que usar o CORS?
+
+A principal vantagem é **sergurança**, já que pode-se definir a permissão seletiva ao acessar o servidor e, através do CORS, definir qual recurso será liberado a requisições vindas de origens externas.
+
+
+#### Referências
+
+* [What is Cors](https://www.codecademy.com/articles/what-is-cors)
+* [Same Origin Policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
