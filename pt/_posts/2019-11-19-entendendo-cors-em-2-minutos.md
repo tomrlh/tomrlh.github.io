@@ -37,6 +37,10 @@ Entenda _clientes_ como o domínio de onde a requisição veio.
 A requisição feita fora de um browser não irá lançar este erro, pois são os browsers que explicitamente implementam a [Same Origin Policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy).
 Portanto, requisições via postman, curl ou outros clientes HTTP irão funcionar normalmente.
 
+### Preflight
+
+É uma requisição prévia, para saber o que está liberado para acesso para aquele domínio que fez a requisição.
+
 
 ![Conversa](/img/post-assets/understand-cors-2-minutes/conversation.jpg)
 
@@ -50,7 +54,7 @@ Esta é a conversa de origens que não implementam a política SOP:
 > **HTTP client** - _valeu_ :v:
 
 
-Os browser e servidor, a conversa seria:
+Entre browser e servidor, a conversa haveria o Preflight:
 
 
 > **Browser** - _servidor, **quais recursos você tem disponível, e quais posso obter**_ :eyes: ?
