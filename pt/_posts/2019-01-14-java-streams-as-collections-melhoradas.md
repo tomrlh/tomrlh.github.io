@@ -54,17 +54,32 @@ Stream<String> deUmaLista = list.stream();
 
 ### Principais Operações Intermediárias
 
-fazer tabela com principais métodos intermediários
 
+
+- **filter(Predicate)** -> retorna um stream contendo os elementos que atendam a condição
+- **map(Function)** -> executa uma operação em cada elemento. Equivalente ao map() do javascript
+- **flatMap(Function,** Stream) -> desctrincha diferentes collections e armazena em um novo stream
+- **distinct()** -> remove os duplicados
+- **sorted()** -> ordena o array
+- **peek(Consumer)** -> permite debugar o Stream sem modificá-lo
+- **limit(long)** -> limita o acesso ao stream até o limite especificado
+- **skip(long)** -> retorna um stream pulando as posições indicadas no long
 
 
 
 
 ### Principais Operações Terminais
 
-fazer tabela com principais métodos terminais
 
 
+- **toArray()** -> converte stream para Array
+- **count()** -> conta os elementos do stream
+- **reduce(Consumer)** -> reduz o stream a um elemento em um Optional
+- **forEach(Consumer)** -> equivalente ao for melhorado
+- **min(Comparator)** -> retorna o valor mínimo do stream
+- **max(Comparator)** -> retorna o valor máximo do stream
+- **allMatch(Predicate)** -> verifica se todos elementos do stream atendem a condição
+- **findFirst()** -> retorna o primeiro elemento do stream em um Optional
 
 
 
@@ -72,10 +87,10 @@ fazer tabela com principais métodos terminais
 
 A maioria do que se faz com listas, se faz com streams. Porém, Streams possui vantagens como:
 
-- legibilidade -> o código é mais declarativo
-- menos código -> reduz o uso de ifs e fors tradicionais
-- eficiência -> os streams se prezam a fazer estritamente a função que o método propõe, da maneira mais eficiente
-- poder -> possui métodos prontos para a maioria das interações com coleções
+- **legibilidade** -> o código é mais declarativo ->
+- **menos código** -> reduz o uso de ifs e fors tradicionais
+- **eficiência** -> os streams se prezam a fazer estritamente a função que o método propõe, da maneira mais eficiente
+- **poder** -> possui métodos prontos para a maioria das interações com coleções
 
 
 
