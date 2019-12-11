@@ -56,7 +56,7 @@ The conversation below ilustrates origins that not implements the SOP (Same Orig
 Therefore, a conversation between browser and server will have the Preflight request:
 
 
-> **Browser** - _server, **which are the resources do you have available for me?**_ :eyes: ?
+> **Browser** - _server, **which are the resources do you have available for me**_ :eyes: ?
 
 > **Server** - _well, my resources are public, so all_
 
