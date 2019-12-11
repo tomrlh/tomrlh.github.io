@@ -33,8 +33,6 @@ Seguindo a analogia, o produto é o dado, e cada etapa da fabricação é uma _O
 
 
 
-
-
 ### Fonte
 
 Existem algumas maneiras de se criar um Stream:
@@ -74,10 +72,10 @@ fazer tabela com principais métodos terminais
 
 A maioria do que se faz com listas, se faz com streams. Porém, Streams possui vantagens como:
 
-* legibilidade:
-* menos código:
-- poder:
-- eficiência:
+- legibilidade -> o código é mais declarativo
+- menos código -> reduz o uso de ifs e fors tradicionais
+- eficiência -> os streams se prezam a fazer estritamente a função que o método propõe, da maneira mais eficiente
+- poder -> possui métodos prontos para a maioria das interações com coleções
 
 
 
@@ -133,10 +131,3 @@ Referências:
 
 * [Stream Docs](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#filter-java.util.function.Predicate-)
 * [Whats the difference between Streams and Collections in Java 8](https://stackoverflow.com/questions/39432699/what-is-the-difference-between-streams-and-collections-in-java-8)
-
-
-{:class="table table-bordered"}
-| Tex Space     | Blue Space        | Lambda            |
-|-------------- |----------------   |------------------ |
-| sXYZ          | sBlue             | sXYZ abcde fghy   |
-| Jaobe XTZ     | Blue Game 5.2     | 5.2               |
