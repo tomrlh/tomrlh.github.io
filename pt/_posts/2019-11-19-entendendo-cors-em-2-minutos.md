@@ -26,6 +26,7 @@ Se está aqui, provavelmente você já viu esta mensagem:
 
 Esta mensagem ocorre quando se faz uma requisição HTTP para algum domínio que não está devidamente configurado para suportar o CORS. Vamos tirar os panos de cima desta política para na próxima vez que ver este erro, não se espantar e saber exatamente como resolver.
 
+
 ### O que é o CORS
 
 Em uma frase: 
@@ -47,11 +48,11 @@ Portanto, requisições via postman, curl ou outros clientes HTTP irão funciona
 
 Esta é a conversa de origens que não implementam a política SOP:
 
-> **HTTP client** - _servidor, me dê o recurso /index.html :pray:_
+> **Cliente HTTP** - _servidor, me dê o recurso /index.html :pray:_
 
-> **Servidor** - _claro, tome_ :package:
+> **Servidor** - _claro_ :package: :wave:
 
-> **HTTP client** - _valeu_ :v:
+> **Cliente HTTP** - _valeu_ :v:
 
 
 Entre browser e servidor, a conversa haveria o Preflight:
@@ -61,7 +62,7 @@ Entre browser e servidor, a conversa haveria o Preflight:
 
 > **Servidor** - _bem, meus recursos são públicos, portanto todos_
 
-> **Browser** - _sendo assim, me dê o recurso /index.html_ :thumbsup:
+> **Browser** - _então me dê o recurso /index.html_ :thumbsup:
 
 > **Servidor** - _claro, ai vai_ :package: :wave:
 
@@ -77,9 +78,6 @@ Porém, requisições de recursos de um servidor para outro, é preciso passar n
 
 Para exemplificar esta comunicação, levantei um servidor [Javalin](https://javalin.io) simples que permite somente a origem 
 **[localhost:8050](https://javalin-simple-service.herokuapp.com/)**, *quando implementando a política CORS*.
-
-
-#### Servidor permitingo origem
 
 
 {% highlight java %}
@@ -104,8 +102,6 @@ public class Main {
 }
 {% endhighlight %}
 
-
-#### Servidor permitingo origem
 
 Para realizar a requisição ao servidor de uma origem diferente, o que de fato irá realizar o cruzamento de origens, foi usado o [Simple HTTP Server](https://docs.python.org/2/library/simplehttpserver.html):
 
@@ -133,6 +129,15 @@ Para realizar a requisição ao servidor de uma origem diferente, o que de fato 
 	</body>
 </html>
 {% endhighlight %}
+
+
+Ao levantar um servidor de arquivos com SimpleHTTPServer na porta 8050 (única porta permitida pela aplicação em caso de origem cruzada), tudo funciona como esperado:
+
+![Cors OK](/img/post-assets/understand-cors-2-minutes/permitted-cors-request.jpg)
+
+Ao mudar o mesmo servidor para a porta 8060 obtemos a famigerada mensagem do CORS:
+
+![Cors OK](/img/post-assets/understand-cors-2-minutes/not-permitted-cors-request.jpg)
 
 
 ### Por que usar o CORS?
