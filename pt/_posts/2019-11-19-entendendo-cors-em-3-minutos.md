@@ -1,6 +1,6 @@
 ---
 layout: post-sidebar
-title: "Entendendo CORS em 2 minutos"
+title: "Entendendo CORS em 3 minutos"
 date: 2019-11-19 02:10:50
 categories: coding
 author_name : "Thiago Medeiros"
@@ -11,7 +11,7 @@ read_time : 2
 feature_image: feature-cors
 show_related_posts: true
 square_related: recommend-cors
-i18n-link: entendendo-cors-em-2-minutos
+i18n-link: entendendo-cors-em-3-minutos
 lang: pt
 ---
 
@@ -43,7 +43,7 @@ Portanto, requisições via postman, curl ou outros clientes HTTP irão funciona
 É uma requisição prévia, para saber o que está liberado para acesso para aquele domínio que fez a requisição.
 
 
-![Conversa](/img/post-assets/understand-cors-2-minutes/conversation.jpg)
+![Conversa](/img/post-assets/understand-cors-3-minutes/conversation.jpg)
 
 
 Esta é a conversa de origens que não implementam a política SOP:
@@ -72,7 +72,7 @@ Entre browser e servidor, a conversa haveria o Preflight:
 Sendo assim, requisições de recursos para o mesmo servidor de onde a requisição partiu, a política CORS não é aplicada.
 Porém, requisições de recursos de um servidor para outro, é preciso passar na validação do CORS para que o recurso seja entregue.
 
-![Same Origin Policy](/img/post-assets/understand-cors-2-minutes/same-origin-policy.svg)
+![Same Origin Policy](/img/post-assets/understand-cors-3-minutes/same-origin-policy.svg)
 
 ### Na prática
 
@@ -133,11 +133,11 @@ Para realizar a requisição ao servidor de uma origem diferente, o que de fato 
 
 Ao levantar um servidor de arquivos com SimpleHTTPServer na porta 8050 (única porta permitida pela aplicação em caso de origem cruzada), tudo funciona como esperado:
 
-![Cors OK](/img/post-assets/understand-cors-2-minutes/permitted-cors-request.jpg)
+![Cors OK](/img/post-assets/understand-cors-3-minutes/permitted-cors-request.jpg)
 
 Ao mudar o mesmo servidor para a porta 8060 obtemos a famigerada mensagem do CORS:
 
-![Cors OK](/img/post-assets/understand-cors-2-minutes/not-permitted-cors-request.jpg)
+![Cors OK](/img/post-assets/understand-cors-3-minutes/not-permitted-cors-request.jpg)
 
 
 ### Por que usar o CORS?

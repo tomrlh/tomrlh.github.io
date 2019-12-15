@@ -1,6 +1,6 @@
 ---
 layout: post-sidebar
-title: "Understanding CORS Policy in 2 minutes"
+title: "Understanding CORS Policy in 3 minutes"
 date: 2019-11-19 02:10:50
 categories: coding
 author_name : "Thiago Medeiros"
@@ -11,7 +11,7 @@ read_time : 3
 feature_image: feature-cors
 show_related_posts: true
 square_related: recommend-cors
-i18n-link: understanding-cors-policy-2-minutes
+i18n-link: understanding-cors-policy-3-minutes
 ---
 
 
@@ -41,7 +41,7 @@ So requests by POSTMAN, curl or other HTTP clients will work properly.
 
 Is a pre-request to knows what can be accessed for the requesting domain.
 
-![Conversation](/img/post-assets/understand-cors-2-minutes/conversation.jpg)
+![Conversation](/img/post-assets/understand-cors-3-minutes/conversation.jpg)
 
 
 The conversation below ilustrates origins that not implements the SOP (Same Origin Policy):
@@ -71,7 +71,7 @@ Considering the above mentioned, requests from the same server to the same serve
 Otherwise, requests from a server to another, it needs the CORS validation to deliver the resource.
 
 
-![Same Origin Policy](/img/post-assets/understand-cors-2-minutes/same-origin-policy.svg)
+![Same Origin Policy](/img/post-assets/understand-cors-3-minutes/same-origin-policy.svg)
 
 ### In Practice
 
@@ -130,11 +130,11 @@ To make the crossed request in fact, I'll need a different server, so I've used 
 
 With all up, with the SimpleHTTPServer serving at port 8050, all goes ok:
 
-![Cors OK](/img/post-assets/understand-cors-2-minutes/permitted-cors-request.jpg)
+![Cors OK](/img/post-assets/understand-cors-3-minutes/permitted-cors-request.jpg)
 
 But changing the port to a different one (8060), CORS goes into action:
 
-![Cors not OK](/img/post-assets/understand-cors-2-minutes/not-permitted-cors-request.jpg)
+![Cors not OK](/img/post-assets/understand-cors-3-minutes/not-permitted-cors-request.jpg)
 
 
 ### Why to use CORS?
